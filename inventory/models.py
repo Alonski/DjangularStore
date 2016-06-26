@@ -32,16 +32,16 @@ class Category(MPTTModel):
     title = models.CharField(max_length=30, unique=True)
     description = models.TextField(null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     parent = TreeForeignKey("self", null=True, blank=True, related_name="children", db_index=True)
 
     class MPTTMeta:
-        order_insertion_by = ['name']
+        order_insertion_by = ['title']
 
     def __str__(self):
         if self.parent:
-            return "{} - {}".format(self.name, self.parent)
+            return "{} - {}".format(self.title, self.parent)
         else:
-            return "{}".format(self.name)
+            return "{}".format(self.title)
             # django-mptt

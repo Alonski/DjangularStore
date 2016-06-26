@@ -1,13 +1,20 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Inventory</h3>
+        <h3 class="panel-title">{{ $ctrl.inventory.title|upperCase }}: Inventory</h3>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item" ng-repeat="product in vm.inventory">
-            <button class="btn btn-success btn-xs"
-            ng-click="vm.addToCart(product)"><i class="glyphicon glyphicon-plus"></i></button>
-            <a href="#/product/{{product.id}}/">{{product.title}}</a>
-            <span class="badge">{{product.price|currency}}</span>
-        </li>
-    </ul>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in $ctrl.inventory.inventory">
+                <button class="btn btn-success btn-xs"
+                        ng-click="vm.addToCart(product)"><i class="glyphicon glyphicon-plus"></i></button>
+                <a href="#/inventory/{{$ctrl.inventory.id}}/product/{{ product.id }}/">{{ product.title }}</a>
+                <span class="badge">{{ product.price|currency }}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="panel-footer">
+        <a href="#/">
+            <button class="btn btn-primary btn-sm">Back</button>
+        </a>
+    </div>
 </div>

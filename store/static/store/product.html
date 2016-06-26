@@ -8,9 +8,12 @@
         </h3>
     </div>
     <div class="panel-body">
-        <img src="{{$ctrl.product.image_url}}" class="img-responsive">
+        <img src="{{$ctrl.product.img}}" class="img-responsive">
         <p>
             {{$ctrl.product.description}}
         </p>
+    </div>
+    <div class="panel-footer">
+        <a href="#/inventory/{{$ctrl.parent}}"><button class="btn btn-primary btn-sm">Back</button></a>
     </div>
 </div>

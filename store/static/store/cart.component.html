@@ -6,14 +6,11 @@
 
     <ul class="list-group">
         <li class="list-group-item" ng-repeat="item in $ctrl.items">
-            {{item.product.title}}
-            {{item.product.price|currency}}
-            X <input type="number" ng-model="item.amount" min="1" max="100">
-            = {{item.product.price * item.amount|currency}}
+            <span class="badge">{{ item.product.price*item.amount|currency}}</span>
+            <button class="btn button-danger btn-sm" ng-click="$ctrl.checkDelete(item, 'click')"><i class="glyphicon glyphicon-minus"></i></button>
+            {{ item.product.title }}*<input type="number" min="0" ng-model="item.amount" ng-change="$ctrl.checkDelete(item, 'change')">
         </li>
-        <li class="list-group-item">
-            Items: 0; Total: <b>{{$ctrl.total()|currency}}</b>
-        </li>
+        <li class="list-group-item">Total: {{$ctrl.total()|currency}}</li>
     </ul>
 
 </div>

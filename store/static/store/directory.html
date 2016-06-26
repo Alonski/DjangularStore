@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Directory</h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="product in vm.inventory">
+           <span class="badge">{{vm.inventory.length}} Products</span> <a href="#/inventory/{{product.id}}
+/"><button class="btn button-success"><i class="glyphicon glyphicon-chevron-down"></i></button>
+           {{product.title}}</a>
+        </li>
+    </ul>
+</div>
